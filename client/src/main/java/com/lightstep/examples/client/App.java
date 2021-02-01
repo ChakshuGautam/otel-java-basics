@@ -1,6 +1,6 @@
 package com.lightstep.examples.client;
 
-import io.opentelemetry.api.OpenTelemetry;
+import io.opentelemetry.api.GlobalOpenTelemetry;
 import io.opentelemetry.api.trace.Tracer;
 import io.opentelemetry.api.trace.Span;
 import io.opentelemetry.context.Scope;
@@ -16,7 +16,7 @@ public class App
   // This tags all data created with this tracer as
   // coming from this package.
   private static final Tracer tracer =
-      OpenTelemetry.getGlobalTracer("com.lightstep.examples.client.App");
+      GlobalOpenTelemetry.getTracer("com.lightstep.examples.client.App");
 
   public static void main( String[] args )
       throws Exception

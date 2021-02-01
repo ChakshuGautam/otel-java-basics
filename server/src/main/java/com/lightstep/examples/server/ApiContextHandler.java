@@ -1,6 +1,6 @@
 package com.lightstep.examples.server;
 
-import io.opentelemetry.api.OpenTelemetry;
+import io.opentelemetry.api.GlobalOpenTelemetry;
 import io.opentelemetry.api.common.AttributeKey;
 import io.opentelemetry.api.common.Attributes;
 import io.opentelemetry.api.trace.Span;
@@ -22,7 +22,7 @@ public class ApiContextHandler extends ServletContextHandler
   // spans started with this tracer will then 
   // be attributed to this package
   private static final Tracer tracer =
-      OpenTelemetry.getGlobalTracer("com.lightstep.examples.server.ApiContextHandler");
+      GlobalOpenTelemetry.getTracer("com.lightstep.examples.server.ApiContextHandler");
 
   public ApiContextHandler()
   {
